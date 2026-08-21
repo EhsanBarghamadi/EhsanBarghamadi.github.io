@@ -23,23 +23,62 @@
         </div>
     </nav>
     <section class="glass-container">
-        <h1 style="text-align:center;">My Repositories</h1>
+        <h1 style="text-align:center;">My Projects</h1>
         <div class="projects-grid">
-            <div class="project-card order-first">
-                <h3>Password Checker</h3>
-                <p>Security tool for password strength.</p>
-                <a href="https://github.com/EhsanBarghamadi/Password-Strength-Checker" target="_blank" class="btn">GitHub</a>
+
+            <div class="project-card-lg order-first">
+                <div class="project-card-head">
+                    <h3>Event Planet</h3>
+                    <span class="project-badge">API-first</span>
+                </div>
+                <p>
+                    An API-first event planning & management platform. Organizers
+                    create and run multi-stage events; participants browse,
+                    register, and give feedback — all through a fully documented
+                    REST API.
+                </p>
+                <div class="tech-tags">
+                    <span>Django</span><span>DRF</span><span>PostgreSQL</span>
+                    <span>Docker</span><span>JWT</span><span>OpenAPI</span>
+                </div>
+                <ul class="feature-list">
+                    <li>State-machine event lifecycle (Draft → Published → Ongoing → Closed → Finished) with enforced transitions</li>
+                    <li>EAV data model for type-safe, dynamic event attributes with no schema changes</li>
+                    <li>JWT + session authentication, versioned endpoints, filtering & search</li>
+                    <li>Dockerized with PostgreSQL, Swagger/Redoc docs, and a published Postman collection</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/EhsanBarghamadi/Event-Planet" target="_blank" class="btn">GitHub</a>
+                    <a href="https://documenter.getpostman.com/view/56734062/2sBY4Qsf5R" target="_blank" class="btn-outline-dark">API Docs</a>
+                </div>
             </div>
-            <div class="project-card order-middle">
-                <h3>Library Management</h3>
-                <p>OOP-based system for libraries.</p>
-                <a href="https://github.com/EhsanBarghamadi/OOP-Library-Management" target="_blank" class="btn">GitHub</a>
+
+            <div class="project-card-lg order-middle">
+                <div class="project-card-head">
+                    <h3>Digichera</h3>
+                    <span class="project-badge">Marketplace</span>
+                </div>
+                <p>
+                    A multi-vendor e-commerce marketplace, in the spirit of
+                    Digikala or Basalam. Sellers open their own stores; customers
+                    shop across every store from one cart and checkout in a
+                    single flow.
+                </p>
+                <div class="tech-tags">
+                    <span>Django</span><span>PostgreSQL</span><span>SQLite</span>
+                    <span>Pillow</span><span>Bootstrap</span>
+                </div>
+                <ul class="feature-list">
+                    <li>One cart auto-splits into a separate order per vendor at checkout</li>
+                    <li>Transaction-safe checkout with <code>select_for_update()</code> row locking to prevent stock issues under concurrent purchases</li>
+                    <li>Phone-based auth with customer/seller/staff roles, plus guest-cart merging on login</li>
+                    <li>Self-referential category tree with cycle protection and cascading soft-delete</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://github.com/EhsanBarghamadi/Digichera" target="_blank" class="btn">GitHub</a>
+                </div>
             </div>
-            <div class="project-card order-last">
-                <h3>MiniStore System</h3>
-                <p>Store management with Python.</p>
-                <a href="https://github.com/EhsanBarghamadi/Python-MiniStore-System" target="_blank" class="btn">GitHub</a>
-            </div>
+
         </div>
     </section>
     <script src="js/script.js"></script>
