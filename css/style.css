@@ -157,6 +157,56 @@ nav a:hover, nav a.active {
     margin: 6px 0 0;
 }
 
+.cert-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 10px;
+}
+
+.cert-thumb {
+    width: 220px;
+    max-width: 100%;
+    border-radius: 6px;
+    display: block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.cert-thumb-link:hover .cert-thumb {
+    transform: scale(1.03);
+}
+
+.cert-info {
+    flex: 1;
+    min-width: 200px;
+}
+
+.cert-info h3 {
+    margin: 0 0 4px;
+    color: #2c3e50;
+}
+
+.cert-info p {
+    margin: 8px 0 12px;
+}
+
+.cert-verify-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .cert-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
