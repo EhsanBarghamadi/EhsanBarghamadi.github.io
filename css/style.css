@@ -114,6 +114,72 @@ nav a:hover, nav a.active {
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
 }
 
+.glass-container h2 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(44, 62, 80, 0.15);
+    color: #2c3e50;
+    font-size: 1.4rem;
+}
+
+.glass-container h2:first-of-type {
+    margin-top: 30px;
+}
+
+.timeline-item {
+    margin-bottom: 20px;
+    padding-left: 15px;
+    border-left: 3px solid #3498db;
+}
+
+.timeline-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.timeline-head h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: #555;
+    white-space: nowrap;
+}
+
+.timeline-item p {
+    margin: 6px 0 0;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 15px 18px;
+}
+
+.skill-category h4 {
+    margin: 0 0 6px;
+    color: #3498db;
+    font-size: 0.95rem;
+}
+
+.skill-category p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
 .btn {
     display: inline-block;
     background-color: #3498db;
