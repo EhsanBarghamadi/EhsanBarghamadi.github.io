@@ -1,3 +1,27 @@
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("../fonts/vazirmatn/Vazirmatn-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("../fonts/vazirmatn/Vazirmatn-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("../fonts/vazirmatn/Vazirmatn-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --bg: #f8f8f6;
     --surface: #ffffff;
@@ -640,13 +664,13 @@ ol {
 
 .bullets li {
     position: relative;
-    padding-left: 18px;
+    padding-inline-start: 18px;
 }
 
 .bullets li::before {
     content: "";
     position: absolute;
-    left: 2px;
+    inset-inline-start: 2px;
     top: 0.65em;
     width: 6px;
     height: 6px;
@@ -662,13 +686,13 @@ ol {
 
 .checklist li {
     position: relative;
-    padding-left: 28px;
+    padding-inline-start: 28px;
 }
 
 .checklist li::before {
     content: "";
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0.2em;
     width: 18px;
     height: 18px;
@@ -913,8 +937,8 @@ ol {
 .timeline {
     list-style: none;
     position: relative;
-    border-left: 2px solid var(--border);
-    padding-left: 28px;
+    border-inline-start: 2px solid var(--border);
+    padding-inline-start: 28px;
     display: grid;
     gap: 36px;
 }
@@ -926,7 +950,7 @@ ol {
 .timeline__item::before {
     content: "";
     position: absolute;
-    left: -36px;
+    inset-inline-start: -36px;
     top: 4px;
     width: 14px;
     height: 14px;
@@ -1322,4 +1346,41 @@ ol {
     * {
         transition: none !important;
     }
+}
+
+/* ======================================================================
+   Persian (dir="rtl")
+   The page LAYOUT stays exactly like the English version: header, column
+   order, photo position, card order. Only the TEXT reads right-to-left.
+   ====================================================================== */
+
+html[dir="rtl"] {
+    --font-sans: "Vazirmatn", "Inter", ui-sans-serif, system-ui, "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+/* 1. Layout containers keep the English (left-to-right) arrangement. */
+[dir="rtl"] :is(.site-header, .hero__grid, .hero__actions, .about, .grid,
+                .resume, .contact, .site-footer__inner) {
+    direction: ltr;
+}
+
+/* 2. Text blocks inside them read right-to-left. */
+[dir="rtl"] :is(.hero__text, .about > *, .grid > *, .resume > *,
+                .contact__text, .site-footer__note, .button) {
+    direction: rtl;
+}
+
+/* 3. Latin-only pieces stay left-to-right so they don't get reordered. */
+[dir="rtl"] :is(.tags li, .contact__list, .project__links a:first-child) {
+    direction: ltr;
+}
+[dir="rtl"] .contact__item small {
+    text-align: right;
+}
+
+/* 4. Persian letters must stay joined: no letter-spacing, no uppercase. */
+[dir="rtl"] :is(h2, h3, p, li, small, strong, a, span, .eyebrow,
+                .project__category):not(.site-header *) {
+    letter-spacing: normal;
+    text-transform: none;
 }

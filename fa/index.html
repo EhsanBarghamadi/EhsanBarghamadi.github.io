@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Ehsan Barghamadi | توسعه‌دهنده Backend با Python/Django</title>
+    <meta name="description" content="Ehsan Barghamadi — توسعه‌دهنده Backend با Python/Django، متخصص REST API، PostgreSQL و سیستم‌های backend تراکنشی. پروژه‌ها و رزومه‌ی من را ببینید.">
+    <meta name="author" content="Ehsan Barghamadi">
+    <link rel="canonical" href="https://ehsanbarghamadi.github.io/fa/">
+    <link rel="alternate" hreflang="en" href="https://ehsanbarghamadi.github.io/">
+    <link rel="alternate" hreflang="fa" href="https://ehsanbarghamadi.github.io/fa/">
+    <link rel="alternate" hreflang="x-default" href="https://ehsanbarghamadi.github.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:url" content="https://ehsanbarghamadi.github.io/fa/">
+    <meta property="og:title" content="Ehsan Barghamadi | توسعه‌دهنده Backend با Python/Django">
+    <meta property="og:description" content="توسعه‌دهنده Backend با Python/Django، متخصص REST API، PostgreSQL و سیستم‌های backend تراکنشی.">
+    <meta property="og:image" content="https://ehsanbarghamadi.github.io/static/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ehsan Barghamadi | توسعه‌دهنده Backend با Python/Django">
+    <meta name="twitter:description" content="توسعه‌دهنده Backend با Python/Django، متخصص REST API، PostgreSQL و سیستم‌های backend تراکنشی.">
+    <meta name="twitter:image" content="https://ehsanbarghamadi.github.io/static/img/og-image.jpg">
+
+    <meta name="color-scheme" content="dark light">
+    <link rel="icon" href="/static/img/favicon.png" type="image/png" sizes="48x48">
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png">
+
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem("theme");
+                if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Ehsan Barghamadi",
+            "jobTitle": "توسعه‌دهنده Backend (Python/Django)",
+            "email": "ehsan0barghamadi@gmail.com",
+            "url": "https://ehsanbarghamadi.github.io/fa/",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Tehran",
+                "addressCountry": "IR"
+            },
+            "sameAs": [
+                "https://www.linkedin.com/in/ehsanbarghamadi",
+                "https://github.com/EhsanBarghamadi",
+                "https://t.me/ehsan0barghamadi"
+            ]
+        }
+    </script>
+
+</head>
+
+
+
+
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <defs>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12" rx="1"/><circle cx="4" cy="4" r="2"/></symbol>
+        <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+        <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+        <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+        <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+        <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+        <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol>
+        <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+        <symbol id="i-git" viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M6 9v12"/></symbol>
+        <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></symbol>
+        <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    </defs>
+</svg>
+
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+
+
+<header class="site-header" id="top">
+    <div class="container site-header__inner">
+        <a class="brand" href="/fa/" aria-label="Ehsan Barghamadi — Home">
+            <span class="brand__mark" aria-hidden="true"><span>EB)</span></span>
+            <span class="brand__name">احسان برغمدی</span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="منوی اصلی">
+            <a href="#about">درباره من</a>
+            <a href="#projects">پروژه‌ها</a>
+            <a href="#experience">تجربه</a>
+            <a href="#skills">مهارت‌ها</a>
+            <a href="#contact">ارتباط با من</a>
+        </nav>
+
+        <div class="site-header__tools">
+            <div class="lang-switch" role="group" aria-label="زبان">
+                <a href="/fa/" hreflang="fa" lang="fa"
+                   aria-current="true">FA</a>
+                <a href="/" hreflang="en" lang="en">EN</a>
+            </div>
+            <button class="icon-button" type="button" data-theme-toggle aria-label="تغییر تم">
+                <svg class="icon icon--sun"><use href="#i-sun"></use></svg>
+                <svg class="icon icon--moon"><use href="#i-moon"></use></svg>
+            </button>
+            <button class="icon-button nav-toggle" type="button" data-nav-toggle aria-controls="site-nav"
+                    aria-expanded="false" aria-label="منو">
+                <svg class="icon icon--menu"><use href="#i-menu"></use></svg>
+                <svg class="icon icon--close"><use href="#i-close"></use></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main id="main">
+    
+<section class="hero">
+    <div class="container hero__grid">
+        <div class="hero__text">
+
+            <p class="hero__status">
+                <svg class="icon">
+                    <use href="#i-map-pin"></use>
+                </svg>
+                تهران، ایران
+            </p>
+
+            <ul class="tags tags--hero" aria-label="تخصص‌ها">
+                <li>Python · Django</li>
+                <li>Django REST Framework</li>
+                <li>REST APIs · PostgreSQL</li>
+            </ul>
+
+            <h1 class="hero__name">احسان برغمدی</h1>
+
+            <p class="hero__role">
+                توسعه‌دهنده Backend | Python و Django
+            </p>
+            
+            <p class="hero__summary">
+                من احسان هستم؛ توسعه‌دهنده بک‌اند. با پایتون و جنگو کار می‌کنم و تمرکزم روی ساخت APIهای RESTful پایدار و مدیریت دقیق منطق‌های سمت سرور است. از حل کردن مسائل جدید و چالش‌های پیچیده فنی لذت می‌برم. دنیای برنامه‌نویسی یعنی یادگیری مداوم: این روزها عمیق‌تر در مفاهیم بک‌اند پیش می‌روم، فرانت‌اند را برای تکمیل مهارت‌هام دنبال می‌کنم و نگاه ویژه‌ای به آینده‌ی هوش مصنوعی دارم.
+            </p>
+            
+            <div class="hero__actions">
+
+                <a class="button" href="#projects">
+                    مشاهده‌ی پروژه‌ها
+                    <svg class="icon">
+                        <use href="#i-arrow-left"></use>
+                    </svg>
+                </a>
+                
+                <a class="button button--primary"
+                href="https://www.linkedin.com/in/ehsanbarghamadi/"
+                rel="noopener noreferrer"
+                target="_blank">
+                <svg class="icon">
+                    <use href="#i-linkedin"></use>
+                </svg>
+                ارتباط در لینکدین
+                </a>
+
+            </div>
+        </div>
+
+        <div class="hero__photo">
+            <img src="/static/img/Ehsan-Barghamadi.jpg"
+                 width="600"
+                 height="600"
+                 alt="Ehsan Barghamadi">
+        </div>
+    </div>
+</section>
+
+
+<section class="section" id="about">
+    <div class="container">
+
+        <header class="section__head">
+            <p class="eyebrow">01 · درباره من</p>
+            <h2>چطور فکر می‌کنم، یاد می‌گیرم و می‌سازم</h2>
+        </header>
+
+        <div class="about">
+
+            <div class="about__bio prose">
+
+                <p>
+                    مسیر من در برنامه‌نویسی بک‌اند بیشتر از هر چیز با
+                    کنجکاوی برای فهمیدن سازوکار سیستم‌ها شکل گرفته.
+                    وقتی قابلیتی رو پیاده‌سازی می‌کنم، فقط به کار کردنش
+                    اکتفا نمی‌کنم؛ دوست دارم بدونم چرا یک راهکار انتخاب
+                    شده، داده‌ها چطور جریان پیدا می‌کنن و تصمیم‌های فنی
+                    چه تأثیری روی بخش‌های دیگه برنامه دارن.
+                </p>
+
+                <p>
+                    در مسیر توسعه مستقل، روی دو پروژه Digichera و
+                    Event Planet کار کرده‌ام. این پروژه‌ها فرصت خوبی
+                    بودن تا آموخته‌هام رو در عمل به کار بگیرم، با
+                    چالش‌های مختلف توسعه بک‌اند روبه‌رو بشم و تجربه‌ام
+                    رو در طراحی و پیاده‌سازی سیستم‌های نرم‌افزاری
+                    گسترش بدم.
+                </p>
+
+                <p>
+                    برای من کد خوب فقط کدی نیست که درست اجرا بشه؛
+                    باید خوانا، قابل نگهداری و قابل توسعه هم باشه.
+                    به همین دلیل به ساختار کد، تست‌نویسی و بررسی
+                    سناریوهای مختلف اهمیت می‌دم و سعی می‌کنم در
+                    هر مرحله از توسعه، چیز تازه‌ای یاد بگیرم.
+                </p>
+
+            </div>
+
+            <aside class="card now">
+
+                <h3 class="card__title">
+                    <span class="dot dot--live"
+                          aria-hidden="true"></span>
+                    تمرکز این روزهای من
+                </h3>
+
+                <ul class="checklist">
+
+                    <li>
+                        عمیق‌تر کردن دانش و مهارت‌هایم در Django،
+                        Django REST Framework، طراحی پایگاه داده
+                        و معماری بک‌اند
+                    </li>
+
+                    <li>
+                        بهبود مهارت‌هایم در تست‌نویسی خودکار با
+                        Pytest و Factory Boy، با تمرکز بر اطمینان
+                        از عملکرد صحیح و قابل‌اعتماد برنامه
+                    </li>
+
+                    <li>
+                        گسترش دانشم در حوزه Frontend برای درک بهتر
+                        نحوه تعامل برنامه‌های سمت کاربر با
+                        سرویس‌های بک‌اند
+                    </li>
+
+                </ul>
+
+            </aside>
+
+        </div>
+
+        <div class="grid grid--3 focus">
+
+            <article class="card area">
+                <div class="area__icon" aria-hidden="true">
+                    <svg class="icon"><use href="#i-code"></use></svg>
+                </div>
+                <h3 class="card__title">توسعه‌ی بک‌اند</h3>
+                <p>
+                    ساخت RESTful APIها و اپلیکیشن‌های backend با Python،
+                    Django و Django REST Framework.
+                </p>
+                <ul class="bullets">
+                    <li>معماری API-first و versioning</li>
+                    <li>احراز هویت JWT و مجوزهای مبتنی بر نقش</li>
+                    <li>Filtering، searching و مستندسازی API</li>
+                </ul>
+                <ul class="tags tags--small">
+                    <li>Python</li>
+                    <li>Django</li>
+                    <li>DRF</li>
+                    <li>JWT</li>
+                    <li>OpenAPI</li>
+                </ul>
+            </article>
+
+            <article class="card area">
+                <div class="area__icon" aria-hidden="true">
+                    <svg class="icon"><use href="#i-server"></use></svg>
+                </div>
+                <h3 class="card__title">طراحی دیتابیس و تراکنش‌ها</h3>
+                <p>
+                    طراحی مدل‌های داده‌ای رابطه‌ای و مدیریت تراکنش‌های
+                     قابل‌اعتماد با PostgreSQL و Django ORM.
+                </p>
+                <ul class="bullets">
+                    <li>مدیریت تراکنش و کنترل همزمانی</li>
+                    <li>قفل‌گذاری سطح ردیف (row-level locking) با select_for_update</li>
+                    <li>مدل‌سازی EAV و اعتبارسنجی state machine</li>
+                </ul>
+                <ul class="tags tags--small">
+                    <li>PostgreSQL</li>
+                    <li>Django ORM</li>
+                    <li>Transactions</li>
+                    <li>EAV</li>
+                    <li>State Machine</li>
+                </ul>
+            </article>
+
+            <article class="card area">
+                <div class="area__icon" aria-hidden="true">
+                    <svg class="icon"><use href="#i-box"></use></svg>
+                </div>
+                <h3 class="card__title">تست‌نویسی و فرآیند توسعه نرم‌افزار</h3>
+                <p>
+                    افزایش قابلیت اطمینان بک‌اند از طریق تست خودکار،
+                    تولید داده‌ی تست و محیط‌های توسعه‌ی کانتینری.
+                </p>
+                <ul class="bullets">
+                    <li>تست خودکار با Pytest</li>
+                    <li>تولید داده‌ی تست با Factory Boy</li>
+                    <li>توسعه‌ی کانتینری با Docker Compose</li>
+                </ul>
+                <ul class="tags tags--small">
+                    <li>Pytest</li>
+                    <li>Factory Boy</li>
+                    <li>Docker</li>
+                    <li>Docker Compose</li>
+                    <li>Git</li>
+                </ul>
+            </article>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="section" id="projects">
+    <div class="container">
+
+        <header class="section__head">
+            <p class="eyebrow">02 · پروژه‌ها</p>
+            <h2>پروژه‌های منتخب Backend</h2>
+            <p class="section__lead">
+                مجموعه‌ای از سیستم‌های بک‌اند که طراحی و توسعه داده‌ام، با تمرکز بر معماری API، طراحی دیتابیس، یکپارچگی تراکنشی و فرآیندهای عملیاتی قابل‌اعتماد
+            </p>
+        </header>
+
+        <div class="grid grid--2 projects" data-projects>
+
+            <!-- Digichera -->
+            <article class="card project project--featured">
+
+                <div class="project__top">
+                    <span class="project__category">
+                        فروشگاهی (E-Commerce)
+                    </span>
+                </div>
+
+                <h3 class="project__title">
+                    <a href="https://github.com/EhsanBarghamadi/digichera"
+                       target="_blank"
+                       rel="noopener">
+                        Digichera — پلتفرم فروشگاهی چندفروشنده
+                    </a>
+                </h3>
+
+                <p class="project__summary">
+                    یک پلتفرم فروشگاهی چندفروشنده که در آن فروشندگان
+                    فروشگاه و محصولات خودشان را مدیریت می‌کنند و
+                    مشتریان می‌توانند با یک سبد خرید واحد از چند
+                    فروشنده خرید کنند.
+                </p>
+
+                <ul class="bullets">
+                    <li>
+                        طراحی فرآیند ثبت سفارش چندفروشنده‌ای که سبد خرید
+                        مشتری را به سفارش‌های مجزای هر فروشنده تقسیم
+                        می‌کند
+                    </li>
+                    <li>
+                        پیاده‌سازی فرآیند ثبت سفارش با تضمین یکپارچگی
+                        تراکنشی از طریق atomic transactionها و
+                        row-level locking در PostgreSQL
+                    </li>
+                    <li>
+                        ساخت احراز هویت مبتنی بر شماره تلفن، کنترل دسترسی
+                        مبتنی بر نقش، سبد خرید مهمان و ادغام خودکار سبد
+                        هنگام ورود
+                    </li>
+                </ul>
+
+                <ul class="tags tags--small">
+                    <li>Python</li>
+                    <li>Django</li>
+                    <li>PostgreSQL</li>
+                    <li>SQLite</li>
+                    <li>Pillow</li>
+                    <li>Bootstrap</li>
+                </ul>
+
+                <div class="project__links">
+                    <a href="https://github.com/EhsanBarghamadi/digichera"
+                       target="_blank"
+                       rel="noopener">
+                        GitHub
+                        <svg class="icon">
+                            <use href="#i-external"></use>
+                        </svg>
+                    </a>
+                </div>
+
+            </article>
+
+            <!-- Event Planet -->
+            <article class="card project project--featured">
+
+                <div class="project__top">
+                    <span class="project__category">
+                        Backend API
+                    </span>
+                </div>
+
+                <h3 class="project__title">
+                    <a href="https://github.com/EhsanBarghamadi/event-planet"
+                       target="_blank"
+                       rel="noopener">
+                        Event Planet — API مدیریت رویداد
+                    </a>
+                </h3>
+
+                <p class="project__summary">
+                   یک پلتفرم مدیریت رویداد API-first ساخته‌شده با Django REST Framework، با فرآیندهای مبتنی بر نقش، ویژگی‌های پویا و چرخه حیات ساختاریافته رویداد.
+                </p>
+
+                <ul class="bullets">
+                    <li>
+                        طراحی چرخه‌ی حیات رویداد بر پایه‌ی state machine
+                        با انتقال‌های وضعیت اعتبارسنجی‌شده
+                    </li>
+                    <li>
+                        پیاده‌سازی مدل داده‌ی EAV انعطاف‌پذیر با
+                        attributeهای پویای type-safe
+                    </li>
+                    <li>
+                        ساخت احراز هویت JWT، مجوزهای مبتنی بر نقش،
+                        API versioning، filtering و search
+                    </li>
+                    <li>
+                        ارائه‌ی مستندات تعاملی API با OpenAPI،
+                        Swagger و Redoc
+                    </li>
+                </ul>
+
+                <ul class="tags tags--small">
+                    <li>Python</li>
+                    <li>Django</li>
+                    <li>DRF</li>
+                    <li>PostgreSQL</li>
+                    <li>JWT</li>
+                    <li>Docker</li>
+                    <li>OpenAPI</li>
+                </ul>
+                <div class="project__links">
+                    <a href="https://github.com/EhsanBarghamadi/event-planet"
+                    target="_blank"
+                    rel="noopener">
+                        GitHub
+                        <svg class="icon">
+                            <use href="#i-external"></use>
+                        </svg>
+                    </a>
+
+                    <a href="https://documenter.getpostman.com/view/56734062/2sBY4Qsf5R"
+                    target="_blank"
+                    rel="noopener">
+                        مستندات API
+                        <svg class="icon">
+                            <use href="#i-external"></use>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="section section--band" id="experience">
+    <div class="container">
+
+        <header class="section__head">
+            <p class="eyebrow">03 · تجربه</p>
+            <h2>تجربه و تحصیلات</h2>
+        </header>
+
+        <div class="resume">
+
+            <ol class="timeline">
+
+                <li class="timeline__item">
+
+                    <p class="timeline__period">
+                        ژوئیه 2025 — اکنون
+                    </p>
+
+                    <h3 class="timeline__title">
+                        توسعه‌دهنده مستقل بک‌اند
+                    </h3>
+
+                    <p class="timeline__meta">
+                        پروژه‌های شخصی
+                    </p>
+
+                    <p>
+                       توسعه اپلیکیشن‌های بک‌اند با Python، Django و Django REST Framework، با تمرکز بر طراحی API، یکپارچگی پایگاه داده، احراز هویت و پیاده‌سازی فرآیندهای قابل‌اعتماد.
+                    </p>
+
+                    <ul class="bullets">
+                        <li>
+                           طراحی و پیاده‌سازی فرآیندهای ثبت سفارش با حفظ یکپارچگی تراکنشی و کنترل همزمانی، با استفاده از Django Transactions و قفل‌گذاری سطح سطر (Row-level Locking) در PostgreSQL.
+                        </li>
+                        <li>
+                            توسعه‌ی REST APIها با احراز هویت JWT،
+                            مجوزهای مبتنی بر نقش، filtering و
+                            API versioning
+                        </li>
+                        <li>
+                            پیاده‌سازی مدل‌سازی EAV و اعتبارسنجی مبتنی بر
+                            state machine
+                        </li>
+                        <li>
+                            به‌کارگیری روش‌های تست خودکار با Pytest و
+                            Factory Boy
+                        </li>
+                    </ul>
+
+                </li>
+
+            </ol>
+
+            <div class="resume__side">
+
+                <div class="card">
+
+                    <h3 class="card__title">تحصیلات</h3>
+
+                    <div class="entry">
+                        <p class="entry__period">
+                            2025 — اکنون
+                        </p>
+                        <p class="entry__title">
+                            دانشگاه پیام نور
+                        </p>
+                        <p class="entry__meta">
+                            کارشناسی مهندسی کامپیوتر
+                        </p>
+                        <p class="entry__meta">
+                            تهران، ایران
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="card">
+
+                    <h3 class="card__title">
+                        آموزش و گواهینامه
+                    </h3>
+
+                    <div class="entry">
+                        <p class="entry__period">
+                            نوامبر 2025 — ژوئن 2026
+                        </p>
+                        <p class="entry__title">
+                            آکادمی دانشکار
+                        </p>
+                        <p class="entry__meta">
+                            بوت‌کمپ توسعه‌ی Backend با Django
+                        </p>
+                        <p class="entry__meta">
+                            آنلاین
+                        </p>
+                        <p class="entry__link">
+                            <a href="/static/docs/daneshkar-certificate.pdf"
+                               target="_blank"
+                               rel="noopener"
+                               type="application/pdf">
+                                مشاهده‌ی گواهینامه (PDF)
+                                <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg>
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="section" id="skills">
+    <div class="container">
+
+        <header class="section__head">
+            <p class="eyebrow">04 · مهارت‌ها</p>
+            <h2>مهارت‌ها و مسیر یادگیری من</h2>
+            <p class="section__lead">
+                فناوری‌ها و ابزارهایی که با آن‌ها تجربه کار دارم.
+                موارد سبزرنگ، ابزارهای اصلی و پرتکرار من در توسعه و پروژه‌هایم هستند.
+            </p>
+        </header>
+
+        <!-- Hands-on Experience -->
+        <h3 class="card__title subhead">مهارت‌های من</h3>
+
+        <div class="grid grid--2">
+
+            <div class="card">
+                <h3 class="card__title">بک‌اند و APIها</h3>
+                <ul class="tags">
+                    <li class="is-key">Python</li>
+                    <li class="is-key">Django</li>
+                    <li class="is-key">Django REST Framework</li>
+                    <li>JWT</li>
+                    <li>OpenAPI / Swagger</li>
+                    <li class="is-key">Postman</li>
+                    <li>Pillow</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 class="card__title">دیتابیس و مدل‌سازی داده</h3>
+                <ul class="tags">
+                    <li class="is-key">PostgreSQL</li>
+                    <li>SQLite</li>
+                    <li>SQL Server</li>
+                    <li>Django ORM</li>
+                    <li>EAV</li>
+                    <li>Transactions</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3 class="card__title">ابزارهای تست و توسعه</h3>
+                <ul class="tags">
+                    <li class="is-key">Pytest</li>
+                    <li>Factory Boy</li>
+                    <li class="is-key">Docker</li>
+                    <li>Docker Compose</li>
+                    <li>Git</li>
+                    <li>Linux</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 class="card__title">مبانی فرانت‌اند</h3>
+                <ul class="tags">
+                    <li class="is-key">HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>Bootstrap</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Learning Roadmap -->
+        <h3 class="card__title subhead">
+            نقشه‌ی راه یادگیری
+        </h3>
+
+
+        <div class="grid grid--3">
+
+            <!-- Backend Development -->
+            <div class="card">
+                <h3 class="card__title">
+                    توسعه‌ی بک‌اند
+                </h3>
+
+                <p>
+                    گسترش تخصص بک‌اند فراتر از Django با کاوش
+                    اکوسیستم Node.js و معماری‌های جایگزین API.
+                </p>
+
+                <ul class="tags">
+                    <li>Node.js</li>
+                    <li>Express.js</li>
+                    <li>GraphQL</li>
+                    <li>WebSockets</li>
+                </ul>
+            </div>
+
+            <!-- Frontend Development -->
+            <div class="card">
+                <h3 class="card__title">
+                    توسعه‌ی فرانت‌اند
+                </h3>
+
+                <p>
+                    حرکت از مبانی فرانت‌اند به سمت فریم‌ورک‌های مدرن
+                    فرانت و ساخت رابط‌های کاربری تعاملی.
+                </p>
+
+                <ul class="tags">
+                    <li>React</li>
+                    <li>Tailwind CSS</li>
+                </ul>
+            </div>
+
+            <!-- AI & Machine Learning -->
+            <div class="card">
+                <h3 class="card__title">
+                    هوش مصنوعی و یادگیری ماشین
+                </h3>
+
+                <p>
+                    مسیر یادگیری بلندمدت من بر درک سیستم‌های هوشمند،
+                    مدل‌های یادگیری ماشین و فناوری‌های مدرن هوش
+                    مصنوعی متمرکز است.
+                </p>
+
+                <ul class="tags">
+                    <li>Machine Learning</li>
+                    <li>Deep Learning</li>
+                    <li>Large Language Models (LLMs)</li>
+                    <li>AI Engineering</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+
+
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact card">
+                    <div class="contact__text">
+                        <p class="eyebrow">05 · ارتباط با من</p>
+                        <h2>بیایید با هم صحبت کنیم</h2>
+                        <p>از توسعه بک‌اند و طراحی APIهای RESTful گرفته تا معماری دیتابیس و پیاده‌سازی منطق‌های پیچیده بیزینس؛ من از خلق سیستم‌های مطمئن، تمیز و ساخت نرم‌افزارهای کاربردی لذت می‌برم. پروژه‌ای در ذهن دارید یا فرصتی برای یک همکاری خوب؟ بیایید با هم گپی بزنیم.</p>
+                    </div>
+                <ul class="contact__list">
+                    
+                        <li><a class="contact__item" href="https://www.linkedin.com/in/ehsanbarghamadi/" rel="noopener" target="_blank">
+                            <svg class="icon"><use href="#i-linkedin"></use></svg>
+                            <span><strong>LinkedIn</strong><small dir="ltr">in/ehsanbarghamadi</small></span>
+                        </a></li>
+
+                        <li><a class="contact__item" href="https://t.me/ehsan0barghamadi" rel="noopener" target="_blank">
+                            <svg class="icon"><use href="#i-telegram"></use></svg>
+                            <span><strong>Telegram</strong><small dir="ltr">t.me/ehsan0barghamadi</small></span>
+                        </a></li>
+                    
+                        <li><a class="contact__item" href="https://github.com/EhsanBarghamadi" rel="noopener" target="_blank">
+                            <svg class="icon"><use href="#i-github"></use></svg>
+                            <span><strong>GitHub</strong><small dir="ltr">github.com/EhsanBarghamadi</small></span>
+                        </a></li>
+                    
+                    
+                        <li><a class="contact__item" href="https://mail.google.com/mail/?view=cm&fs=1&to=ehsan0barghamadi@gmail.com" rel="noopener" target="_blank">
+                            <svg class="icon"><use href="#i-mail"></use></svg>
+                            <span><strong>Email</strong><small dir="ltr">ehsan0barghamadi@gmail.com</small></span>
+                        </a></li>
+                                      
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+
+<footer class="site-footer">
+    <div class="container site-footer__inner">
+        <p>&copy; 2026 Ehsan Barghamadi</p>
+        <p class="site-footer__note">
+            کد منبع این وب‌سایت در
+            <a href="https://github.com/EhsanBarghamadi/ehsanbarghamadi.github.io" rel="noopener" target="_blank">گیت‌هاب</a>
+            در دسترس است.
+        </p>
+    </div>
+</footer>
+
+
+<script src="/static/js/script.js" defer></script>
+
+</body>
+
+</html>
