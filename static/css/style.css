@@ -103,6 +103,7 @@
 }
 
 html {
+    overflow-x: clip;
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--header-h) + 12px);
     -webkit-text-size-adjust: 100%;
@@ -183,8 +184,9 @@ ol {
 
 .skip-link {
     position: absolute;
-    left: -9999px;
+    left: 12px;
     top: 8px;
+    transform: translateY(-250%);
     z-index: 100;
     background: var(--accent);
     color: var(--on-accent);
@@ -193,7 +195,7 @@ ol {
 }
 
 .skip-link:focus {
-    left: 12px;
+    transform: none;
 }
 
 .eyebrow {
