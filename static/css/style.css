@@ -1496,3 +1496,12 @@ html[dir="rtl"] {
     letter-spacing: normal;
     text-transform: none;
 }
+
+/* 5. External-link arrows are mirrored in Persian; in GitHub links (which stay
+      left-to-right) the arrow is moved in front of the label. */
+[dir="rtl"] :is(.project__links, .entry__link) .icon {
+    transform: scaleX(-1);
+}
+[dir="rtl"] .project__links a:first-child .icon {
+    order: -1;
+}
