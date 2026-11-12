@@ -76,7 +76,7 @@
     const step = (now) => {
       if (cancelled) return;
       const t = Math.min(1, (now - startTime) / duration);
-      window.scrollTo(0, startY + distance * ease(t));
+      window.scrollTo({ top: startY + distance * ease(t), behavior: "instant" });
       if (t < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -119,5 +119,61 @@
       );
       links.forEach((link, section) => observer.observe(section));
     }
+  }
+  // ---- Back-to-top button with a scroll-progress ring.
+  // It fades in gradually between FADE_START and FADE_END pixels of scroll, and
+  // the visual state eases toward that target every frame, so even a fast flick
+  // never makes it pop in.
+  const toTop = document.querySelector("[data-to-top]");
+  if (toTop) {
+    const ring = toTop.querySelector(".to-top__progress");
+    const circumference = 2 * Math.PI * 22;
+    const FADE_START = 200;
+    const FADE_END = 500;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let target = 0;
+    let current = 0;
+    let frame = 0;
+    let ticking = false;
+
+    const render = () => {
+      toTop.style.opacity = current.toFixed(3);
+      toTop.style.transform = "translateY(" + ((1 - current) * 16).toFixed(2) + "px) scale(" + (0.7 + 0.3 * current).toFixed(3) + ")";
+      toTop.classList.toggle("is-visible", current > 0.02);
+    };
+    const tick = () => {
+      frame = 0;
+      const diff = target - current;
+      if (reduceMotion.matches || Math.abs(diff) < 0.002) {
+        current = target;
+      } else {
+        current += diff * 0.12;
+        frame = requestAnimationFrame(tick);
+      }
+      render();
+    };
+    const update = () => {
+      ticking = false;
+      const y = window.pageYOffset;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+      if (ring) ring.style.strokeDashoffset = String(circumference * (1 - progress));
+      const p = Math.min(1, Math.max(0, (y - FADE_START) / (FADE_END - FADE_START)));
+      target = p * p * (3 - 2 * p); // smoothstep
+      if (!frame) frame = requestAnimationFrame(tick);
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    toTop.addEventListener("click", () => {
+      animateScroll(0);
+      toTop.blur();
+    });
+    update();
   }
 })();
