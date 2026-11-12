@@ -1372,9 +1372,24 @@ ol {
     visibility: visible;
 }
 
+/* On hover the circle keeps its fill; only the arrow colour changes, and the
+   whole circle swings like a bell (see .is-ringing and script.js). */
 .to-top:hover {
-    background: var(--accent-soft);
     color: var(--accent);
+}
+
+.to-top.is-ringing {
+    transform-origin: 50% 0;
+    animation: to-top-ring 0.8s ease-in-out;
+}
+
+@keyframes to-top-ring {
+    0%   { rotate: 0deg; }
+    15%  { rotate: 14deg; }
+    35%  { rotate: -11deg; }
+    55%  { rotate: 7deg; }
+    75%  { rotate: -3deg; }
+    100% { rotate: 0deg; }
 }
 
 .to-top:focus-visible {

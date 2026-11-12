@@ -187,6 +187,20 @@
       animateScroll(0);
       toTop.blur();
     });
+    // Bell-like swing of the whole circle. It runs once per hover and is not
+    // tied to :hover, so the moving circle can't flicker out from under the cursor.
+    const swing = () => {
+      if (current > 0.95 && !toTop.classList.contains("is-ringing")) {
+        toTop.classList.add("is-ringing");
+      }
+    };
+    toTop.addEventListener("mouseenter", swing);
+    toTop.addEventListener("focus", () => {
+      if (toTop.matches(":focus-visible")) swing();
+    });
+    toTop.addEventListener("animationend", (e) => {
+      if (e.target === toTop) toTop.classList.remove("is-ringing");
+    });
     update();
   }
 })();
