@@ -10,13 +10,26 @@
   if (themeButton) {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
     const currentTheme = () => root.dataset.theme || (prefersDark.matches ? "dark" : "light");
-    themeButton.addEventListener("click", () => {
-      const next = currentTheme() === "dark" ? "light" : "dark";
+    const applyTheme = (next) => {
       root.dataset.theme = next;
       try {
         localStorage.setItem("theme", next);
       } catch (e) {
         // Private mode / blocked storage: the choice just won't survive a reload.
+      }
+    };
+    themeButton.addEventListener("click", () => {
+      const next = currentTheme() === "dark" ? "light" : "dark";
+      if (document.startViewTransition) {
+        // Cross-fade the whole page, gradients included.
+        document.startViewTransition(() => applyTheme(next));
+      } else {
+        // Fallback: briefly let colours transition (see .theme-fade in the CSS).
+        const raw = getComputedStyle(root).getPropertyValue("--theme-fade-duration").trim();
+        const ms = (parseFloat(raw) || 0.7) * (raw.endsWith("ms") ? 1 : 1000);
+        root.classList.add("theme-fade");
+        applyTheme(next);
+        window.setTimeout(() => root.classList.remove("theme-fade"), ms + 100);
       }
     });
   }

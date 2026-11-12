@@ -1417,6 +1417,36 @@ ol {
     }
 }
 
+/* ------------------------------------------------------- Theme switching */
+
+/* One number controls the whole theme change (view transition and fallback). */
+:root {
+    --theme-fade-duration: 1s;
+}
+
+/* Browsers with View Transitions cross-fade the whole page (gradients included).
+   This is a pure opacity fade with no movement, so it also runs when the OS asks
+   for reduced motion. */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: var(--theme-fade-duration);
+    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+/* Keep the page clickable and scrollable during the slow fade. */
+::view-transition {
+    pointer-events: none;
+}
+
+/* Fallback: script.js adds .theme-fade while the theme changes. */
+:root.theme-fade *,
+:root.theme-fade *::before,
+:root.theme-fade *::after {
+    transition: background-color var(--theme-fade-duration) ease, color var(--theme-fade-duration) ease,
+        border-color var(--theme-fade-duration) ease, box-shadow var(--theme-fade-duration) ease,
+        fill var(--theme-fade-duration) ease, stroke var(--theme-fade-duration) ease !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
