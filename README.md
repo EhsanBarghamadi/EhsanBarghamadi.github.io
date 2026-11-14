@@ -1,29 +1,32 @@
-# My Portfolio
+# Ehsan Barghamadi — Portfolio
 
-My personal portfolio website, built to showcase my professional profile and development journey.
+A bilingual (English / Persian) portfolio built with plain HTML, CSS and JavaScript, hosted for free on GitHub Pages. No framework, no build step.
 
-🌐 **Live Website:** [https://EhsanBarghamadi.github.io/](https://ehsanbarghamadi.github.io/)
+🌐 [ehsanbarghamadi.github.io](https://ehsanbarghamadi.github.io/) · 🇮🇷 [فارسی](https://ehsanbarghamadi.github.io/fa/)
 
-## Built With
+## Features
 
-- HTML5
-- CSS3
-- JavaScript
+- English and Persian versions (with RTL support)
+- Light/dark theme that follows the OS and remembers your choice
+- Responsive layout, accessible basics, SEO meta tags, sitemap
 
-## Hosting
+## Build your own
 
-This website is hosted and published using **GitHub Pages**.
+1. Create a repository named `<your-username>.github.io`
+2. Add your `index.html` (fork this repo as a starting point)
+3. Go to **Settings → Pages**, choose branch `main` and folder `/ (root)`, then save
+4. Your site goes live at `https://<your-username>.github.io/`
 
-## Run Locally
+To run it locally:
 
 ```bash
 git clone https://github.com/EhsanBarghamadi/EhsanBarghamadi.github.io.git
-
-cd MyPortfolio
+cd EhsanBarghamadi.github.io
+python -m http.server 8000
 ```
 
-Open `index.html` in your browser to view the website.
+## License
 
----
+Code: MIT. Content (text, photo, certificate): all rights reserved, so please replace it with your own.
 
-© Ehsan Barghamadi
+© 2026 Ehsan Barghamadi
