@@ -29,7 +29,7 @@
     --border: #e2e4df;
     --text: #15181b;
     --muted: #5b626b;
-    --accent: #0c7f57;
+    --accent: #0b7a53;
     --accent-strong: #096b49;
     --accent-soft: rgba(12, 127, 87, 0.09);
     --on-accent: #ffffff;
@@ -1226,6 +1226,11 @@ ol {
 
 .site-footer p {
     margin: 0;
+}
+
+.site-footer__note a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 /* ------------------------------------------------------------ Responsive */
