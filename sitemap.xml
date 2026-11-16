@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://ehsanbarghamadi.github.io/</loc>
-    </url>
-    <url>
-        <loc>https://ehsanbarghamadi.github.io/fa/</loc>
-    </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ehsanbarghamadi.github.io/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ehsanbarghamadi.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ehsanbarghamadi.github.io/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ehsanbarghamadi.github.io/"/>
+  </url>
+  <url>
+    <loc>https://ehsanbarghamadi.github.io/fa/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ehsanbarghamadi.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ehsanbarghamadi.github.io/fa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ehsanbarghamadi.github.io/"/>
+  </url>
+  <url>
+    <loc>https://ehsanbarghamadi.github.io/projects/digichera/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ehsanbarghamadi.github.io/projects/digichera/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ehsanbarghamadi.github.io/fa/projects/digichera/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ehsanbarghamadi.github.io/projects/digichera/"/>
+  </url>
+  <url>
+    <loc>https://ehsanbarghamadi.github.io/fa/projects/digichera/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ehsanbarghamadi.github.io/projects/digichera/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ehsanbarghamadi.github.io/fa/projects/digichera/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ehsanbarghamadi.github.io/projects/digichera/"/>
+  </url>
+  <url>
+    <loc>https://ehsanbarghamadi.github.io/projects/event-planet/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ehsanbarghamadi.github.io/projects/event-planet/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ehsanbarghamadi.github.io/fa/projects/event-planet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ehsanbarghamadi.github.io/projects/event-planet/"/>
+  </url>
+  <url>
+    <loc>https://ehsanbarghamadi.github.io/fa/projects/event-planet/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ehsanbarghamadi.github.io/projects/event-planet/"/>
+    <xhtml:link rel="alternate" hreflang="fa" href="https://ehsanbarghamadi.github.io/fa/projects/event-planet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ehsanbarghamadi.github.io/projects/event-planet/"/>
+  </url>
 </urlset>
