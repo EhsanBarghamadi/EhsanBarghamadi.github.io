@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page not found | Ehsan Barghamadi</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#f8f8f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0e11" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/static/img/favicon.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (theme === "light" || theme === "dark")
+            document.documentElement.dataset.theme = theme;
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <style>
+      .not-found {
+        min-height: 100vh;
+        display: grid;
+        place-content: center;
+        gap: 14px;
+        text-align: center;
+        padding: 40px var(--gutter);
+      }
+      .not-found h1 {
+        font-size: clamp(4rem, 14vw, 7rem);
+        color: var(--accent);
+      }
+      .not-found p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .not-found__fa {
+        font-family: "Vazirmatn", ui-sans-serif, system-ui, Tahoma, Arial,
+          sans-serif;
+      }
+      .not-found__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="not-found" id="main">
+      <h1>404</h1>
+      <p>This page doesn’t exist or has moved.</p>
+      <p class="not-found__fa" lang="fa" dir="rtl">
+        این صفحه وجود ندارد یا جابه‌جا شده است.
+      </p>
+      <div class="not-found__actions">
+        <a class="button button--primary" href="/" hreflang="en">Home</a>
+        <a class="button" href="/fa/" hreflang="fa" lang="fa">صفحه‌ی اصلی</a>
+      </div>
+    </main>
+  </body>
+</html>
