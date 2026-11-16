@@ -39,7 +39,10 @@
       property="og:url"
       content="https://ehsanbarghamadi.github.io/projects/event-planet/"
     />
-    <meta property="og:title" content="Event Planet: Event Management REST API | Ehsan Barghamadi" />
+    <meta
+      property="og:title"
+      content="Event Planet: Event Management REST API | Ehsan Barghamadi"
+    />
     <meta
       property="og:description"
       content="An API-first event management platform built with Django REST Framework: multi-stage events, a validated status lifecycle and type-safe dynamic attributes."
@@ -51,10 +54,16 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="Ehsan Barghamadi — Python/Django backend developer" />
+    <meta
+      property="og:image:alt"
+      content="Ehsan Barghamadi — Python/Django backend developer"
+    />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Event Planet: Event Management REST API | Ehsan Barghamadi" />
+    <meta
+      name="twitter:title"
+      content="Event Planet: Event Management REST API | Ehsan Barghamadi"
+    />
     <meta
       name="twitter:description"
       content="An API-first event management platform built with Django REST Framework: multi-stage events, a validated status lifecycle and type-safe dynamic attributes."
@@ -63,11 +72,22 @@
       name="twitter:image"
       content="https://ehsanbarghamadi.github.io/static/img/og-image.jpg"
     />
-    <meta name="twitter:image:alt" content="Ehsan Barghamadi — Python/Django backend developer" />
+    <meta
+      name="twitter:image:alt"
+      content="Ehsan Barghamadi — Python/Django backend developer"
+    />
 
     <meta name="color-scheme" content="dark light" />
-    <meta name="theme-color" content="#f8f8f6" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0b0e11" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="theme-color"
+      content="#f8f8f6"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0b0e11"
+      media="(prefers-color-scheme: dark)"
+    />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link
       rel="icon"
@@ -342,9 +362,9 @@
             </div>
             <h1>Event Planet</h1>
             <p class="project-page__lead">
-              An API-first event management platform built with Django REST
-              Framework: multi-stage events, a validated status lifecycle and
-              type-safe dynamic attributes.
+              An API-first event planning and management platform built with
+              Django REST Framework: multi-stage events, validated state machine
+              lifecycles, and type-safe dynamic EAV attributes.
             </p>
           </header>
 
@@ -380,98 +400,102 @@
           <div class="prose">
             <p>
               Organizers create and manage multi-stage events; participants
-              browse published events, register, submit feedback and view
+              browse published events, register, submit feedback, and view
               results.
             </p>
             <p>
-              The project is API-only: all interaction goes through versioned
-              endpoints (<code>/api/v1/</code>, <code>/api/v2/</code>)
-              documented with OpenAPI, Swagger and Redoc, and a published
-              Postman collection.
+              The project is API-first: all interactions happen through
+              versioned endpoints (<code>/api/v1/</code> and
+              <code>/api/v2/</code>) documented with OpenAPI, Swagger, Redoc,
+              and a published Postman collection.
             </p>
           </div>
 
           <h2 class="project-page__subtitle">What I did</h2>
           <ul class="checklist">
             <li>
-              A state-machine event lifecycle with validated status transitions,
+              State-machine event lifecycle with validated status transitions
               enforced in both the Django admin and the API
             </li>
             <li>
-              A flexible EAV data model: global
-              <code>Attribute</code> definitions plus per-event values stored in
-              type-specific columns, so dynamic attributes stay type-safe
+              Flexible EAV data model: global <code>Attribute</code> definitions
+              plus type-specific columns per event, keeping dynamic attributes
+              type-safe
             </li>
             <li>
-              JWT authentication (access, refresh and blacklist-on-logout) side
-              by side with session login for the browsable API and Swagger
+              JWT authentication (access, refresh, and logout blacklist)
+              alongside session login for the browsable API and Swagger
             </li>
             <li>
               Role-based permissions for organizers and participants, enforced
-              at the permission-class level and again in serializer validation
+              at both the permission class level and serializer validation
             </li>
             <li>
-              Time-range and overlap validation for event stages, which can only
-              be edited while the parent event is a draft
+              Time-range and overlap validation for event stages; stages are
+              editable only while the event is in <code>DRAFT</code> status
             </li>
             <li>
               Event-level registration with capacity enforcement, feedback
-              limited to finished events the user registered for, and
+              restricted to finished events the user registered for, and
               organizer-published results
             </li>
             <li>
-              Filtering by status and free-text search across title and
-              description, URL-path API versioning, and interactive docs through
-              drf-spectacular
+              Status filtering and text search on title and description, URL
+              path API versioning, and interactive docs with
+              <code>drf-spectacular</code>
             </li>
             <li>
-              Docker Compose setup with a PostgreSQL healthcheck and an
-              entrypoint that waits for the database and runs migrations;
-              separate dev (SQLite) and prod (PostgreSQL) settings
+              Docker Compose setup with PostgreSQL healthchecks, an entrypoint
+              waiting for the database and running migrations, and split
+              settings for dev (SQLite) and prod (PostgreSQL)
             </li>
           </ul>
 
           <h2 class="project-page__subtitle">Design decisions</h2>
           <div class="grid grid--2">
             <div class="card">
-              <h3 class="card__title">Registration at the event level</h3>
+              <h3 class="card__title">Event-Level Registration</h3>
               <p>
-                Registration and capacity live on the whole event, not on
-                individual stages. Most scenarios — multi-part webinars,
-                multi-session workshops — have a participant sign up once and
-                attend everything, so per-stage registration would only add
-                complexity. <code>EventStage</code> stays a scheduling unit.
+                Registration and capacity are handled at the whole-event level
+                rather than per stage. For most scenarios — multi-part webinars
+                and multi-session workshops — participants register once and
+                attend all stages, making per-stage registration unnecessary
+                complexity. <code>EventStage</code> is purely a scheduling unit.
               </p>
             </div>
             <div class="card">
               <h3 class="card__title">EAV without JSONField</h3>
               <p>
-                <code>Attribute</code> is the shared definition with a data type
-                (text, integer, boolean); <code>EventAttributeValue</code> holds
-                the value in one of three typed columns. Only one is populated,
-                a rule checked in <code>clean()</code> for the admin and in the
-                serializer for the API.
+                <code>Attribute</code> defines shared definitions with data
+                types (text, integer, boolean), and
+                <code>EventAttributeValue</code> stores values in one of three
+                type-specific columns. Only one column is populated, enforced
+                via <code>clean()</code> in the admin and validation in
+                serializers.
               </p>
             </div>
             <div class="card">
-              <h3 class="card__title">One source of truth for transitions</h3>
+              <h3 class="card__title">
+                Single Source of Truth for Transitions
+              </h3>
               <p>
-                Allowed status transitions live in
-                <code>ALLOWED_TRANSITIONS</code> on the model.
-                <code>Event.clean()</code> enforces them for the admin and
-                <code>EventSerializer.validate()</code> for the API, since DRF
-                doesn't call <code>clean()</code> by default.
+                Allowed state transitions live in
+                <code>ALLOWED_TRANSITIONS</code> on the model itself.
+                <code>Event.clean()</code> enforces them for the admin, and
+                <code>EventSerializer.validate()</code> enforces them for the
+                API since DRF does not call <code>clean()</code> by default.
               </p>
             </div>
             <div class="card">
-              <h3 class="card__title">JWT plus session</h3>
+              <h3 class="card__title">JWT alongside Session</h3>
               <p>
-                SimpleJWT is the primary method for clients; session login
-                exists so the browsable API and the Swagger “Authorize” flow are
-                easy to use from a browser.
+                SimpleJWT is the primary token-based auth method; session login
+                is also included to make the browsable API and Swagger
+                "Authorize" flow convenient to use directly from the browser.
               </p>
             </div>
           </div>
+
           <h2 class="project-page__subtitle">Event status lifecycle</h2>
           <ul class="bullets state-list">
             <li><code>DRAFT</code> → <code>PUBLISHED, CANCELLED</code></li>
@@ -480,14 +504,15 @@
             </li>
             <li><code>ONGOING</code> → <code>FINISHED, CANCELLED</code></li>
             <li><code>CLOSED</code> → <code>FINISHED, CANCELLED</code></li>
-            <li><code>FINISHED</code> → <code>terminal</code></li>
-            <li><code>CANCELLED</code> → <code>terminal</code></li>
+            <li><code>FINISHED</code> → terminal</li>
+            <li><code>CANCELLED</code> → terminal</li>
           </ul>
+
           <h2 class="project-page__subtitle">API groups</h2>
           <ul class="bullets">
             <li>
-              <strong>Public</strong> — list and view published events, their
-              stages and published results — no authentication
+              <strong>Public</strong> — list and detail of published events,
+              stages, and published results — no authentication required
             </li>
             <li>
               <strong>Participant</strong> — register for published events, view
@@ -495,23 +520,24 @@
             </li>
             <li>
               <strong>Organizer</strong> — create events and stages, manage
-              dynamic attributes, see participants and feedback, publish results
+              dynamic attributes, view participants and feedback, publish
+              results
             </li>
             <li>
-              <strong>Authentication</strong> — register, obtain and refresh JWT
-              pairs, blacklist on logout, session login and logout
+              <strong>Auth</strong> — signup, obtain/refresh JWT tokens,
+              blacklist on logout, session login and logout
             </li>
           </ul>
 
           <h2 class="project-page__subtitle">Testing</h2>
           <div class="prose">
             <p>
-              The suite uses Pytest and Factory Boy and covers access control,
-              permissions, creation and updates, state transitions and stages
-              for events; EAV validation for attributes; registrations, feedback
-              and results; and registration, authentication and permissions for
-              users. A management command based on <code>factory_boy</code> and
-              Faker generates realistic demo data.
+              The test suite is written with Pytest and Factory Boy, covering
+              access control, permissions, CRUD operations, state transitions,
+              event stages, EAV validation, registrations, feedback, results,
+              and user authentication. A management command built with
+              <code>factory_boy</code> and Faker also generates realistic demo
+              data.
             </p>
           </div>
 
@@ -520,7 +546,9 @@
             <li>Throttling on authentication and registration endpoints</li>
             <li>Caching for read-heavy public endpoints</li>
             <li>Consistent pagination across list endpoints</li>
-            <li>CI with GitHub Actions for tests and code-quality checks</li>
+            <li>
+              CI with GitHub Actions for test execution and code quality checks
+            </li>
           </ul>
 
           <h2 class="project-page__subtitle">Stack</h2>
