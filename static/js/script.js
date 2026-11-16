@@ -9,7 +9,8 @@
   const themeButton = document.querySelector("[data-theme-toggle]");
   if (themeButton) {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-    const currentTheme = () => root.dataset.theme || (prefersDark.matches ? "dark" : "light");
+    const currentTheme = () =>
+      root.dataset.theme || (prefersDark.matches ? "dark" : "light");
     const applyTheme = (next) => {
       root.dataset.theme = next;
       try {
@@ -25,7 +26,9 @@
         document.startViewTransition(() => applyTheme(next));
       } else {
         // Fallback: briefly let colours transition (see .theme-fade in the CSS).
-        const raw = getComputedStyle(root).getPropertyValue("--theme-fade-duration").trim();
+        const raw = getComputedStyle(root)
+          .getPropertyValue("--theme-fade-duration")
+          .trim();
         const ms = (parseFloat(raw) || 0.7) * (raw.endsWith("ms") ? 1 : 1000);
         root.classList.add("theme-fade");
         applyTheme(next);
@@ -42,7 +45,9 @@
       nav.classList.toggle("is-open", open);
       navToggle.setAttribute("aria-expanded", String(open));
     };
-    navToggle.addEventListener("click", () => setOpen(!nav.classList.contains("is-open")));
+    navToggle.addEventListener("click", () =>
+      setOpen(!nav.classList.contains("is-open")),
+    );
     nav.addEventListener("click", (event) => {
       if (event.target.closest("a")) setOpen(false);
     });
@@ -81,15 +86,24 @@
     if (Math.abs(distance) < 2) return;
     const duration = Math.min(900, Math.max(400, Math.abs(distance) * 0.5));
     const startTime = performance.now();
-    const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-    const cancel = () => { cancelled = true; };
+    const ease = (t) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const cancel = () => {
+      cancelled = true;
+    };
     let cancelled = false;
     window.addEventListener("wheel", cancel, { once: true, passive: true });
-    window.addEventListener("touchstart", cancel, { once: true, passive: true });
+    window.addEventListener("touchstart", cancel, {
+      once: true,
+      passive: true,
+    });
     const step = (now) => {
       if (cancelled) return;
       const t = Math.min(1, (now - startTime) / duration);
-      window.scrollTo({ top: startY + distance * ease(t), behavior: "instant" });
+      window.scrollTo({
+        top: startY + distance * ease(t),
+        behavior: "instant",
+      });
       if (t < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -97,16 +111,23 @@
   document.addEventListener("click", (event) => {
     const link = event.target.closest("a[href]");
     if (!link || event.defaultPrevented || event.button !== 0) return;
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+      return;
     // Only links that point at a section of THIS page ("#about" or "index.html#about").
     const normalize = (path) => path.replace(/index\.html$/, "");
-    if (link.origin !== location.origin || normalize(link.pathname) !== normalize(location.pathname)) return;
+    if (
+      link.origin !== location.origin ||
+      normalize(link.pathname) !== normalize(location.pathname)
+    )
+      return;
     if (!link.hash) return;
     const id = decodeURIComponent(link.hash.slice(1));
     const target = id ? document.getElementById(id) : document.body;
     if (!target) return;
     event.preventDefault();
-    const y = id ? target.getBoundingClientRect().top + window.pageYOffset - headerOffset() : 0;
+    const y = id
+      ? target.getBoundingClientRect().top + window.pageYOffset - headerOffset()
+      : 0;
     animateScroll(Math.max(0, y));
     if (id && history.pushState) history.pushState(null, "", "#" + id);
   });
@@ -151,7 +172,12 @@
 
     const render = () => {
       toTop.style.opacity = current.toFixed(3);
-      toTop.style.transform = "translateY(" + ((1 - current) * 16).toFixed(2) + "px) scale(" + (0.7 + 0.3 * current).toFixed(3) + ")";
+      toTop.style.transform =
+        "translateY(" +
+        ((1 - current) * 16).toFixed(2) +
+        "px) scale(" +
+        (0.7 + 0.3 * current).toFixed(3) +
+        ")";
       toTop.classList.toggle("is-visible", current > 0.02);
     };
     const tick = () => {
@@ -170,8 +196,12 @@
       const y = window.pageYOffset;
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const progress = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
-      if (ring) ring.style.strokeDashoffset = String(circumference * (1 - progress));
-      const p = Math.min(1, Math.max(0, (y - FADE_START) / (FADE_END - FADE_START)));
+      if (ring)
+        ring.style.strokeDashoffset = String(circumference * (1 - progress));
+      const p = Math.min(
+        1,
+        Math.max(0, (y - FADE_START) / (FADE_END - FADE_START)),
+      );
       target = p * p * (3 - 2 * p); // smoothstep
       if (!frame) frame = requestAnimationFrame(tick);
     };
