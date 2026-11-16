@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Event Planet؛ API مدیریت رویداد | احسان برغمدی</title>
+    <meta
+      name="description"
+      content="پلتفرم مدیریت رویداد API-first با Django REST Framework؛ چرخه‌ی حیات وضعیت اعتبارسنجی‌شده، احراز هویت JWT و attributeهای پویا. پروژه‌ی احسان برغمدی."
+    />
+    <meta name="author" content="Ehsan Barghamadi" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link
+      rel="canonical"
+      href="https://ehsanbarghamadi.github.io/fa/projects/event-planet/"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://ehsanbarghamadi.github.io/projects/event-planet/"
+    />
+    <link
+      rel="alternate"
+      hreflang="fa"
+      href="https://ehsanbarghamadi.github.io/fa/projects/event-planet/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://ehsanbarghamadi.github.io/projects/event-planet/"
+    />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="احسان برغمدی" />
+    <meta
+      property="og:url"
+      content="https://ehsanbarghamadi.github.io/fa/projects/event-planet/"
+    />
+    <meta property="og:title" content="Event Planet؛ API مدیریت رویداد | احسان برغمدی" />
+    <meta
+      property="og:description"
+      content="یک پلتفرم مدیریت رویداد API-first ساخته‌شده با Django REST Framework: رویدادهای چندمرحله‌ای، چرخه‌ی حیات وضعیت اعتبارسنجی‌شده و attributeهای پویای type-safe."
+    />
+    <meta
+      property="og:image"
+      content="https://ehsanbarghamadi.github.io/static/img/og-image.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="احسان برغمدی — توسعه‌دهنده بک‌اند پایتون و جنگو" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Event Planet؛ API مدیریت رویداد | احسان برغمدی" />
+    <meta
+      name="twitter:description"
+      content="یک پلتفرم مدیریت رویداد API-first ساخته‌شده با Django REST Framework: رویدادهای چندمرحله‌ای، چرخه‌ی حیات وضعیت اعتبارسنجی‌شده و attributeهای پویای type-safe."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ehsanbarghamadi.github.io/static/img/og-image.jpg"
+    />
+    <meta name="twitter:image:alt" content="احسان برغمدی — توسعه‌دهنده بک‌اند پایتون و جنگو" />
+
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#f8f8f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0e11" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link
+      rel="icon"
+      href="/static/img/favicon.png"
+      type="image/png"
+      sizes="48x48"
+    />
+    <link rel="apple-touch-icon" href="/static/img/apple-touch-icon.png" />
+
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (theme === "light" || theme === "dark")
+            document.documentElement.dataset.theme = theme;
+        } catch (e) {}
+      })();
+    </script>
+
+    <link
+      rel="preload"
+      href="/static/fonts/vazirmatn/Vazirmatn-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/static/fonts/vazirmatn/Vazirmatn-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/static/fonts/vazirmatn/Vazirmatn-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "خانه",
+                "item": "https://ehsanbarghamadi.github.io/fa/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "پروژه‌ها",
+                "item": "https://ehsanbarghamadi.github.io/fa/#projects"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Event Planet",
+                "item": "https://ehsanbarghamadi.github.io/fa/projects/event-planet/"
+              }
+            ]
+          },
+          {
+            "@type": "SoftwareSourceCode",
+            "@id": "https://ehsanbarghamadi.github.io/fa/projects/event-planet/#project",
+            "name": "Event Planet",
+            "description": "یک پلتفرم مدیریت رویداد API-first ساخته‌شده با Django REST Framework: رویدادهای چندمرحله‌ای، چرخه‌ی حیات وضعیت اعتبارسنجی‌شده و attributeهای پویای type-safe.",
+            "url": "https://ehsanbarghamadi.github.io/fa/projects/event-planet/",
+            "inLanguage": "fa",
+            "programmingLanguage": "Python",
+            "codeRepositoryUrl": "https://github.com/EhsanBarghamadi/event-planet",
+            "author": {
+              "@id": "https://ehsanbarghamadi.github.io/#person"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="display: none"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+          <path
+            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"
+          />
+          <rect x="2" y="9" width="4" height="12" rx="1" />
+          <circle cx="4" cy="4" r="2" />
+        </symbol>
+        <symbol id="i-telegram" viewBox="0 0 24 24">
+          <path d="M22 2 11 13" />
+          <path d="M22 2 15 22l-4-9-9-4 20-7z" />
+        </symbol>
+        <symbol id="i-github" viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+          />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+        </symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+          />
+        </symbol>
+        <symbol id="i-link" viewBox="0 0 24 24">
+          <path
+            d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+          />
+          <path
+            d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+          />
+        </symbol>
+        <symbol id="i-external" viewBox="0 0 24 24">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <path d="M15 3h6v6" />
+          <path d="M10 14 21 3" />
+        </symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24">
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </symbol>
+        <symbol id="i-arrow-left" viewBox="0 0 24 24">
+          <path d="M19 12H5" />
+          <path d="m12 19-7-7 7-7" />
+        </symbol>
+        <symbol id="i-map-pin" viewBox="0 0 24 24">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <path
+            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+          />
+        </symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24">
+          <path d="M3 6h18M3 12h18M3 18h18" />
+        </symbol>
+        <symbol id="i-close" viewBox="0 0 24 24">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </symbol>
+        <symbol id="i-code" viewBox="0 0 24 24">
+          <path d="m16 18 6-6-6-6" />
+          <path d="m8 6-6 6 6 6" />
+        </symbol>
+        <symbol id="i-server" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="8" rx="2" />
+          <rect x="2" y="14" width="20" height="8" rx="2" />
+          <path d="M6 6h.01M6 18h.01" />
+        </symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24">
+          <path d="M12 2 2 7l10 5 10-5-10-5z" />
+          <path d="m2 17 10 5 10-5" />
+          <path d="m2 12 10 5 10-5" />
+        </symbol>
+        <symbol id="i-database" viewBox="0 0 24 24">
+          <ellipse cx="12" cy="5" rx="9" ry="3" />
+          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+        </symbol>
+        <symbol id="i-activity" viewBox="0 0 24 24">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </symbol>
+        <symbol id="i-cpu" viewBox="0 0 24 24">
+          <rect x="4" y="4" width="16" height="16" rx="2" />
+          <rect x="9" y="9" width="6" height="6" />
+          <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />
+        </symbol>
+        <symbol id="i-play" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <path d="m10 8 6 4-6 4V8z" />
+        </symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M2 12h20" />
+          <path
+            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+          />
+        </symbol>
+        <symbol id="i-git" viewBox="0 0 24 24">
+          <circle cx="18" cy="18" r="3" />
+          <circle cx="6" cy="6" r="3" />
+          <path d="M13 6h3a2 2 0 0 1 2 2v7" />
+          <path d="M6 9v12" />
+        </symbol>
+        <symbol id="i-terminal" viewBox="0 0 24 24">
+          <path d="m4 17 6-6-6-6" />
+          <path d="M12 19h8" />
+        </symbol>
+        <symbol id="i-box" viewBox="0 0 24 24">
+          <path
+            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+          />
+          <path d="M3.27 6.96 12 12.01l8.73-5.05" />
+          <path d="M12 22.08V12" />
+        </symbol>
+        <symbol id="i-download" viewBox="0 0 24 24">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <path d="m7 10 5 5 5-5" />
+          <path d="M12 15V3" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="M20 6 9 17l-5-5" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <a class="skip-link" href="#main">پرش به محتوا</a>
+
+    <header class="site-header" id="top">
+      <div class="container site-header__inner">
+        <a class="brand" href="/fa/" aria-label="احسان برغمدی">
+          <span class="brand__mark" aria-hidden="true"><span>EB)</span></span>
+          <span class="brand__name">احسان برغمدی</span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="منوی اصلی">
+          <a href="/fa/#about">درباره من</a><a href="/fa/#projects">پروژه‌ها</a
+          ><a href="/fa/#experience">تجربه</a><a href="/fa/#skills">مهارت‌ها</a
+          ><a href="/fa/#contact">ارتباط با من</a>
+        </nav>
+
+        <div class="site-header__tools">
+          <div class="lang-switch" role="group" aria-label="زبان">
+            <a
+              href="/fa/projects/event-planet/"
+              hreflang="fa"
+              lang="fa"
+              aria-current="page"
+              >FA</a
+            >
+            <a href="/projects/event-planet/" hreflang="en" lang="en">EN</a>
+          </div>
+          <button
+            class="icon-button"
+            type="button"
+            data-theme-toggle
+            aria-label="تغییر تم"
+          >
+            <svg class="icon icon--sun"><use href="#i-sun"></use></svg>
+            <svg class="icon icon--moon"><use href="#i-moon"></use></svg>
+          </button>
+          <button
+            class="icon-button nav-toggle"
+            type="button"
+            data-nav-toggle
+            aria-controls="site-nav"
+            aria-expanded="false"
+            aria-label="منو"
+          >
+            <svg class="icon icon--menu"><use href="#i-menu"></use></svg>
+            <svg class="icon icon--close"><use href="#i-close"></use></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <article class="section project-page">
+        <div class="container container--narrow">
+          <a class="back-link" href="/fa/#projects">
+            <svg class="icon"><use href="#i-arrow-right"></use></svg>همه‌ی
+            پروژه‌ها</a
+          >
+
+          <header class="project-page__head">
+            <div class="project__top">
+              <span class="project__category">Backend API</span>
+              <span class="status status--development"
+                ><span class="dot" aria-hidden="true"></span>در حال توسعه</span
+              >
+            </div>
+            <h1>Event Planet</h1>
+            <p class="project-page__lead">
+              یک پلتفرم مدیریت رویداد API-first ساخته‌شده با Django REST
+              Framework: رویدادهای چندمرحله‌ای، چرخه‌ی حیات وضعیت اعتبارسنجی‌شده
+              و attributeهای پویای type-safe.
+            </p>
+          </header>
+
+          <dl class="facts">
+            <div>
+              <dt>نقش من</dt>
+              <dd>تنها توسعه‌دهنده</dd>
+            </div>
+            <div>
+              <dt>نوع</dt>
+              <dd>پروژه شخصی</dd>
+            </div>
+            <div>
+              <dt>لینک‌ها</dt>
+              <dd class="facts__links">
+                <a
+                  href="https://github.com/EhsanBarghamadi/event-planet"
+                  rel="noopener"
+                  target="_blank"
+                  >گیت‌هاب<svg class="icon" aria-hidden="true">
+                    <use href="#i-external"></use></svg></a
+                ><a
+                  href="https://documenter.getpostman.com/view/56734062/2sBY4Qsf5R"
+                  rel="noopener"
+                  target="_blank"
+                  >مستندات API<svg class="icon" aria-hidden="true">
+                    <use href="#i-external"></use></svg
+                ></a>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="prose">
+            <p>
+              برگزارکننده‌ها رویدادهای چندمرحله‌ای می‌سازند و مدیریت می‌کنند؛
+              شرکت‌کننده‌ها رویدادهای منتشرشده را می‌بینند، ثبت‌نام می‌کنند،
+              بازخورد می‌دهند و نتایج را می‌بینند.
+            </p>
+            <p>
+              پروژه فقط API است: همه‌ی تعامل از طریق endpointهای نسخه‌بندی‌شده
+              (<code>/api/v1/</code> و <code>/api/v2/</code>) انجام می‌شود که با
+              OpenAPI، Swagger و Redoc و یک کالکشن Postman منتشرشده مستند
+              شده‌اند.
+            </p>
+          </div>
+
+          <h2 class="project-page__subtitle">کارهایی که انجام دادم</h2>
+          <ul class="checklist">
+            <li>
+              چرخه‌ی حیات رویداد بر پایه‌ی state machine با انتقال‌های وضعیت
+              اعتبارسنجی‌شده که هم در ادمین Django و هم در API اعمال می‌شود
+            </li>
+            <li>
+              مدل داده‌ی EAV انعطاف‌پذیر: تعریف سراسری
+              <code>Attribute</code> به‌علاوه‌ی مقدارهای هر رویداد در ستون‌های
+              مخصوص هر نوع، تا attributeهای پویا type-safe بمانند
+            </li>
+            <li>
+              احراز هویت JWT (access، refresh و blacklist هنگام خروج) در کنار
+              ورود مبتنی بر session برای browsable API و Swagger
+            </li>
+            <li>
+              مجوزهای مبتنی بر نقش برای برگزارکننده و شرکت‌کننده، هم در سطح
+              permission class و هم دوباره در اعتبارسنجی serializer
+            </li>
+            <li>
+              اعتبارسنجی بازه‌ی زمانی و هم‌پوشانی مرحله‌های رویداد؛ مرحله‌ها فقط
+              تا وقتی رویداد پیش‌نویس (draft) است قابل ویرایش‌اند
+            </li>
+            <li>
+              ثبت‌نام در سطح رویداد با اعمال ظرفیت، بازخورد فقط برای رویدادهای
+              پایان‌یافته‌ای که کاربر در آن ثبت‌نام کرده، و نتایج منتشرشده توسط
+              برگزارکننده
+            </li>
+            <li>
+              فیلتر بر اساس وضعیت و جست‌وجوی متنی روی عنوان و توضیحات، نسخه‌بندی
+              API از طریق مسیر URL و مستندات تعاملی با drf-spectacular
+            </li>
+            <li>
+              راه‌اندازی با Docker Compose همراه با healthcheck برای PostgreSQL
+              و entrypoint که منتظر دیتابیس می‌ماند و migrate اجرا می‌کند؛
+              تنظیمات جدا برای dev (SQLite) و prod (PostgreSQL)
+            </li>
+          </ul>
+
+          <h2 class="project-page__subtitle">تصمیم‌های طراحی</h2>
+          <div class="grid grid--2">
+            <div class="card">
+              <h3 class="card__title">ثبت‌نام در سطح رویداد</h3>
+              <p>
+                ثبت‌نام و ظرفیت روی کل رویداد تعریف شده، نه روی مرحله‌ها. در
+                بیشتر سناریوها — وبینارهای چندبخشی و کارگاه‌های چندجلسه‌ای —
+                شرکت‌کننده یک بار ثبت‌نام می‌کند و در همه‌ی مرحله‌ها حضور دارد؛
+                پس ثبت‌نام per-stage فقط پیچیدگی اضافه می‌کرد.
+                <code>EventStage</code> فقط یک واحد زمان‌بندی است.
+              </p>
+            </div>
+            <div class="card">
+              <h3 class="card__title">EAV بدون JSONField</h3>
+              <p>
+                <code>Attribute</code> تعریف مشترک همراه با نوع داده (متن، عدد
+                صحیح، بولین) است و <code>EventAttributeValue</code> مقدار را در
+                یکی از سه ستون تایپ‌دار نگه می‌دارد. فقط یکی از آن‌ها پر می‌شود
+                و این قانون در <code>clean()</code> برای ادمین و در serializer
+                برای API بررسی می‌شود.
+              </p>
+            </div>
+            <div class="card">
+              <h3 class="card__title">یک منبع واحد برای انتقال‌ها</h3>
+              <p>
+                انتقال‌های مجاز وضعیت در <code>ALLOWED_TRANSITIONS</code> روی
+                خود مدل تعریف شده‌اند. <code>Event.clean()</code> آن‌ها را برای
+                ادمین و <code>EventSerializer.validate()</code> برای API اعمال
+                می‌کند، چون DRF به‌صورت پیش‌فرض <code>clean()</code> را صدا
+                نمی‌زند.
+              </p>
+            </div>
+            <div class="card">
+              <h3 class="card__title">JWT در کنار session</h3>
+              <p>
+                SimpleJWT روش اصلی برای کلاینت‌هاست؛ ورود session هم هست تا
+                استفاده از browsable API و جریان «Authorize» در Swagger از داخل
+                مرورگر راحت باشد.
+              </p>
+            </div>
+          </div>
+          <h2 class="project-page__subtitle">چرخه‌ی حیات وضعیت رویداد</h2>
+          <ul class="bullets state-list">
+            <li><code>DRAFT</code> → <code>PUBLISHED, CANCELLED</code></li>
+            <li>
+              <code>PUBLISHED</code> → <code>ONGOING, CLOSED, CANCELLED</code>
+            </li>
+            <li><code>ONGOING</code> → <code>FINISHED, CANCELLED</code></li>
+            <li><code>CLOSED</code> → <code>FINISHED, CANCELLED</code></li>
+            <li><code>FINISHED</code> → پایانی (terminal)</li>
+            <li><code>CANCELLED</code> → پایانی (terminal)</li>
+          </ul>
+          <h2 class="project-page__subtitle">گروه‌های API</h2>
+          <ul class="bullets">
+            <li>
+              <strong>عمومی</strong> — فهرست و جزئیات رویدادهای منتشرشده،
+              مرحله‌ها و نتایج منتشرشده — بدون نیاز به احراز هویت
+            </li>
+            <li>
+              <strong>شرکت‌کننده</strong> — ثبت‌نام در رویدادهای منتشرشده،
+              مشاهده‌ی ثبت‌نام‌های خود، ثبت و مدیریت بازخورد
+            </li>
+            <li>
+              <strong>برگزارکننده</strong> — ساخت رویداد و مرحله، مدیریت
+              attributeهای پویا، دیدن شرکت‌کننده‌ها و بازخوردها، انتشار نتایج
+            </li>
+            <li>
+              <strong>احراز هویت</strong> — ثبت‌نام، دریافت و تمدید توکن JWT،
+              blacklist هنگام خروج، ورود و خروج با session
+            </li>
+          </ul>
+
+          <h2 class="project-page__subtitle">تست‌نویسی</h2>
+          <div class="prose">
+            <p>
+              مجموعه‌ی تست‌ها با Pytest و Factory Boy نوشته شده و شامل کنترل
+              دسترسی، مجوزها، ساخت و ویرایش، انتقال وضعیت و مرحله‌های رویداد؛
+              اعتبارسنجی EAV برای attributeها؛ ثبت‌نام، بازخورد و نتایج؛ و
+              ثبت‌نام، احراز هویت و مجوزهای کاربران است. یک management command
+              مبتنی بر <code>factory_boy</code> و Faker هم داده‌ی نمایشی
+              واقع‌گرایانه تولید می‌کند.
+            </p>
+          </div>
+
+          <h2 class="project-page__subtitle">قدم‌های بعدی</h2>
+          <ul class="bullets">
+            <li>Throttling روی endpointهای احراز هویت و ثبت‌نام</li>
+            <li>کش برای endpointهای عمومی پرخوانش</li>
+            <li>صفحه‌بندی یکسان در همه‌ی endpointهای فهرست</li>
+            <li>CI با GitHub Actions برای اجرای تست‌ها و بررسی کیفیت کد</li>
+          </ul>
+
+          <h2 class="project-page__subtitle">تکنولوژی‌ها</h2>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Django</li>
+            <li>Django REST Framework</li>
+            <li>SimpleJWT</li>
+            <li>django-filter</li>
+            <li>drf-spectacular</li>
+            <li>PostgreSQL</li>
+            <li>Docker</li>
+            <li>Docker Compose</li>
+            <li>Pytest</li>
+            <li>Factory Boy</li>
+          </ul>
+        </div>
+      </article>
+
+      <section class="section section--band">
+        <div class="container">
+          <header class="section__head">
+            <h2>پروژه‌های دیگر</h2>
+          </header>
+          <div class="grid grid--2 projects">
+            <article class="card project project--featured">
+              <div class="project__top">
+                <span class="project__category">فروشگاهی (E-Commerce)</span>
+                <span class="status status--development"
+                  ><span class="dot" aria-hidden="true"></span>در حال
+                  توسعه</span
+                >
+              </div>
+              <h3 class="project__title">
+                <a href="/fa/projects/digichera/"
+                  >Digichera — پلتفرم فروشگاهی چندفروشنده</a
+                >
+              </h3>
+              <p class="project__summary">
+                یک مارکت‌پلیس چندفروشنده که فروشنده‌ها فروشگاه خودشان را دارند و
+                مشتری با یک بار پرداخت خرید می‌کند؛ سبد خرید به‌صورت خودکار به
+                سفارش‌های مجزای هر فروشنده تقسیم می‌شود.
+              </p>
+              <ul class="tags tags--small">
+                <li>Python</li>
+                <li>Django</li>
+                <li>PostgreSQL</li>
+                <li>SQLite</li>
+                <li>Pillow</li>
+                <li>Bootstrap</li>
+              </ul>
+              <div class="project__links">
+                <a href="/fa/projects/digichera/"
+                  >جزئیات<svg class="icon" aria-hidden="true">
+                    <use href="#i-arrow-right"></use></svg></a
+                ><a
+                  href="https://github.com/EhsanBarghamadi/digichera"
+                  rel="noopener"
+                  target="_blank"
+                  >گیت‌هاب<svg class="icon" aria-hidden="true">
+                    <use href="#i-external"></use></svg
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>&copy; 2026 Ehsan Barghamadi</p>
+        <p class="site-footer__note">
+          کد منبع این وب‌سایت در
+          <a
+            href="https://github.com/EhsanBarghamadi/ehsanbarghamadi.github.io"
+            rel="noopener"
+            target="_blank"
+            >گیت‌هاب</a
+          >
+          در دسترس است.
+        </p>
+      </div>
+    </footer>
+
+    <script src="/static/js/script.js" defer></script>
+  </body>
+</html>
