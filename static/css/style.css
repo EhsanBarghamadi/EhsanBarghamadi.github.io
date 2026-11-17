@@ -1508,14 +1508,17 @@ ol {
 
 /* One number controls the whole theme change (view transition and fallback). */
 :root {
-  --theme-fade-duration: 1s;
+  --theme-fade-duration: 1.25s;
 }
 
 /* Browsers with View Transitions cross-fade the whole page (gradients included).
    This is a pure opacity fade with no movement, so it also runs when the OS asks
-   for reduced motion. */
-::view-transition-old(root),
-::view-transition-new(root) {
+   for reduced motion. script.js adds .theme-vt only while the THEME changes; the
+   scope matters: the page-navigation transition at the end of this file also
+   styles ::view-transition-*(root) and, being later, would otherwise override
+   this duration and make the theme change take only 0.25s. */
+:root.theme-vt::view-transition-old(root),
+:root.theme-vt::view-transition-new(root) {
   animation-duration: var(--theme-fade-duration);
   animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
 }

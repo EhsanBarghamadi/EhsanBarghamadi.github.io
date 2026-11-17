@@ -19,20 +19,34 @@
         // Private mode / blocked storage: the choice just won't survive a reload.
       }
     };
+    const fadeWithCss = (next) => {
+      const raw = getComputedStyle(root)
+        .getPropertyValue("--theme-fade-duration")
+        .trim();
+      const ms = (parseFloat(raw) || 0.7) * (raw.endsWith("ms") ? 1 : 1000);
+      root.classList.add("theme-fade");
+      applyTheme(next);
+      window.setTimeout(() => root.classList.remove("theme-fade"), ms + 100);
+    };
     themeButton.addEventListener("click", () => {
       const next = currentTheme() === "dark" ? "light" : "dark";
-      if (document.startViewTransition) {
-        // Cross-fade the whole page, gradients included.
-        document.startViewTransition(() => applyTheme(next));
+      if (typeof document.startViewTransition === "function") {
+        // Cross-fade the whole page, gradients included. The .theme-vt class
+        // scopes the 1s duration in the CSS to this transition only.
+        try {
+          root.classList.add("theme-vt");
+          const transition = document.startViewTransition(() =>
+            applyTheme(next),
+          );
+          transition.finished.finally(() =>
+            root.classList.remove("theme-vt"),
+          );
+        } catch (e) {
+          root.classList.remove("theme-vt");
+          applyTheme(next);
+        }
       } else {
-        // Fallback: briefly let colours transition (see .theme-fade in the CSS).
-        const raw = getComputedStyle(root)
-          .getPropertyValue("--theme-fade-duration")
-          .trim();
-        const ms = (parseFloat(raw) || 0.7) * (raw.endsWith("ms") ? 1 : 1000);
-        root.classList.add("theme-fade");
-        applyTheme(next);
-        window.setTimeout(() => root.classList.remove("theme-fade"), ms + 100);
+        fadeWithCss(next);
       }
     });
   }
