@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ehsanbarghamadi.github.io/sitemap.xml
+Sitemap: https://ehsanbarghamadi.ir/sitemap.xml

@@ -2,7 +2,7 @@
 
 A bilingual (English / Persian) portfolio built with plain HTML, CSS and JavaScript, hosted for free on GitHub Pages. No framework, no build step.
 
-🌐 [ehsanbarghamadi.github.io](https://ehsanbarghamadi.github.io/) · 🇮🇷 [فارسی](https://ehsanbarghamadi.github.io/fa/)
+🌐 [ehsanbarghamadi.ir](https://ehsanbarghamadi.ir/) · 🇮🇷 [فارسی](https://ehsanbarghamadi.ir/fa/)
 
 ## Features
 
